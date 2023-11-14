@@ -16,3 +16,4 @@ MonoBehaviour:
   <DefaultHealth>k__BackingField: 10
   <DefaultDamage>k__BackingField: 5
   <ViewPrefab>k__BackingField: {fileID: 907901109074060895, guid: 755b8a1c1f5ab50429911c426e3d3d0c, type: 3}
+  <IsBlocker>k__BackingField: 0

@@ -39,7 +39,6 @@ namespace Game.ECS
                 .Add(new PlayerInitSystem())
 
                 .Add(new GridGenerationSystem())
-                .Add(new NodesCleanupSystem())
                 .Add(new NodesSpawnSystem())
                 .Add(new NodesInstantiationSystem())
                 .Add(new NodeViewInitializeSystem())
@@ -53,9 +52,11 @@ namespace Game.ECS
                 .Add(new ClickHandleEmptyNodeSystem())
                 .Add(new OpenEnemySystem())
                 .Add(new AttackEnemySystem())
+                .Add(new HideEnemySytem())                
 
                 .Add(new NodeStateUpdateSystem())
                 .Add(new CommandsCleanSystem())
+                .Add(new PlayerWinHandleSystem())
 
 
                 .Inject(spawnConfig)

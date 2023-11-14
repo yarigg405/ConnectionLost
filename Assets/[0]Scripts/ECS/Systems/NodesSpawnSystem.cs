@@ -14,7 +14,6 @@ namespace Game.ECS.Systems
         private readonly EcsCustomInject<PrefabsConfig> _prefabsConfig;
         private readonly EcsCustomInject<GridsSelector> _gridsSelector;
 
-
         private readonly EcsFilterInject<Inc<HexCoordinatesComponent, NotInitializedFlag>> _filter;
 
 

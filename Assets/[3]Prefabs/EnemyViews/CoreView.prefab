@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4335380011176865547}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Animators
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8839455560494160726}
   - component: {fileID: 1756222834709811571}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Show
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7262658682039608461}
   - component: {fileID: 4745498119689290734}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8415418266570878745}
   - component: {fileID: 6120745263353899379}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GettingHeal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1322569787488348231}
   - component: {fileID: 4747214904878353368}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GettingDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420474520178059687}
   - component: {fileID: 4447802899065331917}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CoreEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 8540459897541968184}
   - component: {fileID: 3581911909674722334}
   - component: {fileID: 2900917336043149379}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4680132098085666615}
   - component: {fileID: 907901109074060895}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CoreView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 3543597852639872983}
   - component: {fileID: 5345922355850064287}
   - component: {fileID: 6030220310628897201}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -546,7 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8436048928038973482}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7234011263856375204}
   - component: {fileID: 5107404988972831528}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 4098171128568962663}
   - component: {fileID: 4830116410781941713}
   - component: {fileID: 2156156573645516614}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -20,6 +20,7 @@ namespace Game.ECS.Systems
             foreach (var entity in _filter.Value)
             {
                 var condition = poolConditions.Get(entity);
+                if (condition.NodeCondition == NodeCondition.Closed) continue;
 
                 if (condition.NodeCondition == NodeCondition.HaveContent)
                 {
