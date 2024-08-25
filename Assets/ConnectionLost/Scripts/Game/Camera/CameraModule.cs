@@ -6,7 +6,7 @@ namespace ConnectionLost.Camera
 {
     internal sealed class CameraModule : Module
     {
-        [SerializeField, Service(typeof(CameraSystem))]
+        [SerializeField, Listener, Service(typeof(CameraSystem))]
         private CameraSystem cameraSystem = new();
     }
 }

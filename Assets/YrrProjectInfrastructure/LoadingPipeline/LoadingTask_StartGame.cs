@@ -12,7 +12,8 @@ namespace Infrastructure.LoadingPipeline
 
         async UniTask<LoadingResult> ILoadingTask.Do()
         {
-            await UniTask.RunOnThreadPool(_gameMachine.StartGame);
+            _gameMachine.StartGame();
+            await UniTask.Yield();
             var result = new LoadingResult(true);
             return result;
         }
