@@ -11,7 +11,6 @@ namespace Infrastructure.LoadingPipeline
 
         async UniTask<LoadingResult> ILoadingTask.Do()
         {
-            var tcs = new UniTaskCompletionSource<LoadingResult>();
             installer.InstallModules();
             await UniTask.Yield();
             var result = new LoadingResult(true);

@@ -8,7 +8,7 @@ namespace Infrastructure.LoadingPipeline
     {
         [OdinSerialize] private ILoadingTask[] loadingTasks;
 
-        private async void Start()
+        private async void Awake()
         {
             foreach (var task in loadingTasks)
             {

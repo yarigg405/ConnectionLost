@@ -22,18 +22,33 @@ namespace Infrastructure.DI
             {
                 var attribute = field.GetCustomAttribute<ServiceAttribute>();
 
-                if (attribute == null)
-                {
-                    var service = field.GetValue(this);
-                    var type = service.GetType();
-                    yield return (type, service);
-                }
-
                 if (attribute != null)
                 {
                     var type = attribute.Contract;
                     var service = field.GetValue(this);
                     yield return (type, service);
+                }
+            }
+        }
+
+        internal IEnumerable<object> GetListeners()
+        {
+            FieldInfo[] fields = GetType().GetFields
+          (
+              BindingFlags.Instance |
+              BindingFlags.NonPublic
+              | BindingFlags.Public
+              | BindingFlags.DeclaredOnly
+          );
+
+            foreach (var field in fields)
+            {
+                var attribute = field.GetCustomAttribute<ListenerAttribute>();
+
+                if (attribute != null)
+                {
+                    var service = field.GetValue(this);
+                    yield return service;
                 }
             }
         }

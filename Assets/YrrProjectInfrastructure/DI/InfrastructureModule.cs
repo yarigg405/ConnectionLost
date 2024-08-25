@@ -9,7 +9,7 @@ namespace Infrastructure.DI
         [SerializeField, Service(typeof(GameMachine))]
         private GameMachine gameMachine = new();
 
-        [SerializeField, Service(typeof(TickableProcessor))]
+        [SerializeField, Listener, Service(typeof(TickableProcessor))]
         private TickableProcessor tickableProcessor;
     }
 }

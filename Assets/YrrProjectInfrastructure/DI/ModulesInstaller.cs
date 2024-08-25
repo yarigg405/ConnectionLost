@@ -25,9 +25,8 @@ namespace Infrastructure.DI
 
         private void InstallModule(Module module)
         {
-            foreach (var item in module.GetServices())
+            foreach (var service in module.GetListeners())
             {
-                var service = item.Item2;
                 if (service is MonoBehaviour mb)
                 {
                     _container.InjectGameObject(mb.gameObject);
@@ -36,6 +35,7 @@ namespace Infrastructure.DI
                 {
                     _container.Inject(service);
                 }
+
 
                 if (service is IUpdateListener tickable)
                 {
