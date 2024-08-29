@@ -224,10 +224,9 @@ MonoBehaviour:
       data:
       - Key: 0
         Value:
-          spawntable:
-            data:
-            - Key: {fileID: 1874950076809548912, guid: a53d24d71d0642b47a425b3cf756f30e, type: 3}
-              Value: 35
+          SpawnData:
+          - Key: {fileID: 1874950076809548912, guid: a53d24d71d0642b47a425b3cf756f30e, type: 3}
+            Value: 35
 --- !u!4 &444170000
 Transform:
   m_ObjectHideFlags: 0

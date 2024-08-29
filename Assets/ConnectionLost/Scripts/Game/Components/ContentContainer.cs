@@ -4,12 +4,12 @@ using Yrr.Entitaz;
 
 namespace ConnectionLost
 {
-    internal sealed class ContentContainer : MonoBehaviour
+    internal sealed class ContentContainer : MonoBehaviour, IEntitazComponent
     {
-        public IEntita ContentEntita { get; private set; }
+        public Entita ContentEntita { get; private set; }
         public bool IsEmpty => ContentEntita == null;
 
-        public void SetContent(IEntita contentEntita)
+        public void SetContent(Entita contentEntita)
         {
             ContentEntita = contentEntita;
         }
