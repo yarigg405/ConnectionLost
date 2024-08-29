@@ -10,20 +10,20 @@ namespace ConnectionLost
     internal sealed class CellView : SerializedMonoBehaviour
     {
         [SerializeField] private Cell cell;
-        [OdinSerialize] private Dictionary<CellState, TweenAnimator> animators;
+        [OdinSerialize] private Dictionary<CellStatus, TweenAnimator> animators;
 
         private void OnEnable()
         {
-            cell.State.OnChange += OnStateChanged;
-            OnStateChanged(cell.State);
+            cell.Status.OnChange += OnStateChanged;
+            OnStateChanged(cell.Status);
         }
 
         private void OnDisable()
         {
-            cell.State.OnChange -= OnStateChanged;
+            cell.Status.OnChange -= OnStateChanged;
         }
 
-        private void OnStateChanged(CellState state)
+        private void OnStateChanged(CellStatus state)
         {
             var animator = animators[state];
             animator.Animate();

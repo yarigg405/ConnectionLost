@@ -5,20 +5,23 @@ using UnityEngine;
 namespace ConnectionLost
 {
     [Serializable]
-    internal sealed class CellClickHandler
+    internal sealed class CellClickSystem
     {
         internal void CellClicked(Cell cell)
         {
-            cell.State.Value = CellState.Empty;
+            if (cell.Status != CellStatus.Opened) return;
+
+
+            cell.Status.Value = CellStatus.Empty;
 
             var neighboursColliders = Physics.OverlapSphere(cell.transform.position, 1f);
             for (int i = 0; i < neighboursColliders.Length; i++)
             {
                 if (neighboursColliders[i].TryGetComponent<Cell>(out var neighour))
                 {
-                    if (neighour.State == CellState.Closed)
+                    if (neighour.Status == CellStatus.Closed)
                     {
-                        neighour.State.Value = CellState.Opened;
+                        neighour.Status.Value = CellStatus.Opened;
                     }
                 }
             }

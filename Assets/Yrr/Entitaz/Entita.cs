@@ -21,15 +21,9 @@ namespace Yrr.Entitaz
             }
         }
 
-
         public void AddEntitaComponent(object component)
         {
             _components[component.GetType()] = component;
-        }
-
-        void IEntita.AddEntitaComponent(object component, Type componentType)
-        {
-            _components[componentType] = component;
         }
 
         T IEntita.GetEntitaComponent<T>()

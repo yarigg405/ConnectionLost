@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Yrr.Entitaz;
 using Yrr.UI.Animators;
@@ -10,8 +9,9 @@ namespace ConnectionLost
     internal sealed class Cell : Entita
     {
         [SerializeField] private TweenAnimator animator;
+        [SerializeField] private Collider clickTrigger;
 
-        internal ReactiveValue<CellState> State = new();
-        internal ReactiveValue<int> BlocksCount = new();
+        internal ReactiveValue<CellStatus> Status = new();
+        internal int BlocksCount;
     }
 }

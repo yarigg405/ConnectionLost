@@ -12,9 +12,9 @@ namespace ConnectionLost
     internal sealed class InputSystem : IUpdateListener
     {
         [Inject] private readonly CameraSystem _cameraSystem;
-        [Inject] private readonly CellClickHandler _cellClickHandler;
-        [Inject] private readonly EnemyClickHandler _enemyClickHandler;
-        [Inject] private readonly BonusesClickHandler _bonusClickHandler;
+        [Inject] private readonly CellClickSystem _cellClickSystem;
+        [Inject] private readonly EnemyStorage _enemyClickHandler;
+        [Inject] private readonly BonusSystem _bonusClickHandler;
 
 
         void IUpdateListener.OnUpdate(float deltaTime)
@@ -34,13 +34,8 @@ namespace ConnectionLost
                 {
                     if (entita is Cell cell)
                     {
-                        _cellClickHandler.CellClicked(cell);
+                        _cellClickSystem.CellClicked(cell);
                     }
-
-                    //else if(entita is Enemy enemy)
-                    //{
-                    //    _enemyClickHandler.EnemyClicked(enemy);
-                    //}
                 }
             }
         }

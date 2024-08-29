@@ -1,6 +1,6 @@
 namespace ConnectionLost
 {
-    internal enum CellState
+    internal enum CellStatus
     {
         Closed,
         Opened,

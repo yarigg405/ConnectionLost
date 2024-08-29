@@ -1,4 +1,5 @@
 ﻿using ConnectionLost.Camera;
+using Infrastructure.GameSystem;
 using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
@@ -8,12 +9,12 @@ using VContainer;
 namespace ConnectionLost
 {
     [Serializable]
-    internal sealed class GridSystem
+    internal sealed class GridStarter : IUpdateListener
     {
         [SerializeField] private Grid[] grids;
 
         [Inject] private readonly GridStatsFactory _statsFactory;
-        [Inject] private readonly GridSpawner _spawner;
+        [Inject] private readonly GridSpawner _gridSpawner;
         [Inject] private readonly CameraSystem _cameraSystem;
 
         private readonly GridGenerator _generator = new();
@@ -26,7 +27,7 @@ namespace ConnectionLost
         {
             var stats = _statsFactory.BuildGridStats(_currentDifficult);
             var gridData = _generator.GenerateRandomGrid(stats);
-            _spawner.SpawnGrid(gridData, grids[_currentGridNum]);
+            _gridSpawner.SpawnGrid(gridData, grids[_currentGridNum]);
             _cameraSystem.LookAt(grids[_currentGridNum].CameraLookPoint);
             _cameraSystem.FollowAt(grids[_currentGridNum].CameraFollowPoint);
         }
@@ -39,6 +40,12 @@ namespace ConnectionLost
                 _currentGridNum = 0;
 
             SpawnGrid();
+        }
+
+        void IUpdateListener.OnUpdate(float deltaTime)
+        {
+            if (Input.GetKeyUp(KeyCode.F4))
+                SpawnGrid();
         }
     }
 }

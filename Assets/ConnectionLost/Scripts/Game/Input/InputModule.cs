@@ -9,13 +9,13 @@ namespace ConnectionLost
         [SerializeField, Listener, Service(typeof(InputSystem))]
         private InputSystem inputSystem = new();
 
-        [SerializeField, Listener, Service(typeof(CellClickHandler))]
-        private CellClickHandler cellClickHandler = new();
+        [SerializeField, Listener, Service(typeof(CellClickSystem))]
+        private CellClickSystem cellClickHandler = new();
 
-        [SerializeField, Listener, Service(typeof(EnemyClickHandler))]
-        private EnemyClickHandler enemyClickHandler = new();
+        [SerializeField, Listener, Service(typeof(EnemyStorage))]
+        private EnemyStorage enemyClickHandler = new();
 
-        [SerializeField, Listener, Service(typeof(BonusesClickHandler))]   
-        private BonusesClickHandler bonusesClickHandler = new();
+        [SerializeField, Listener, Service(typeof(BonusSystem))]   
+        private BonusSystem bonusesClickHandler = new();
     }
 }

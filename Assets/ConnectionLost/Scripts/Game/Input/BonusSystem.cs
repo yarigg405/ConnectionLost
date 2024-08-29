@@ -4,7 +4,7 @@
 namespace ConnectionLost
 {
     [Serializable]
-    internal sealed class BonusesClickHandler
+    internal sealed class BonusSystem
     {
     }
 }

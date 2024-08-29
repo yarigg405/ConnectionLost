@@ -8,7 +8,5 @@ namespace Yrr.Entitaz
         T GetEntitaComponent<T>();
 
         bool TryGetEntitaComponent<T>(out T element);
-
-        void AddEntitaComponent(object component, Type componentType);
     }
 }
