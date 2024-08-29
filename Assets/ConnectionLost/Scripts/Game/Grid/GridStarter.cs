@@ -14,7 +14,8 @@ namespace ConnectionLost
         [SerializeField] private Grid[] grids;
 
         [Inject] private readonly GridStatsFactory _statsFactory;
-        [Inject] private readonly GridSpawner _gridSpawner;
+        [Inject] private readonly CellsSpawner _gridSpawner;
+        [Inject] private readonly EnemySpawner _enemySpawner;
         [Inject] private readonly CameraSystem _cameraSystem;
 
         private readonly GridGenerator _generator = new();
@@ -28,6 +29,7 @@ namespace ConnectionLost
             var stats = _statsFactory.BuildGridStats(_currentDifficult);
             var gridData = _generator.GenerateRandomGrid(stats);
             _gridSpawner.SpawnGrid(gridData, grids[_currentGridNum]);
+            _enemySpawner.SpawnEnemies(stats);
             _cameraSystem.LookAt(grids[_currentGridNum].CameraLookPoint);
             _cameraSystem.FollowAt(grids[_currentGridNum].CameraFollowPoint);
         }

@@ -6,7 +6,7 @@ namespace ConnectionLost
 {
     internal sealed class GameplayModule : Module
     {
-        [SerializeField, Service(typeof(CellsSystem))]
-        private CellsSystem cellsSystem;
+        [SerializeField, Service(typeof(CellsStorage))]
+        private CellsStorage cellsSystem;
     }
 }

@@ -12,7 +12,10 @@ namespace ConnectionLost
         [SerializeField, Listener, Service(typeof(GridStatsFactory))]
         private GridStatsFactory gridStatsFactory = new();
 
-        [SerializeField, Listener, Service(typeof(GridSpawner))]
-        private GridSpawner gridSpawner = new();
+        [SerializeField, Listener, Service(typeof(CellsSpawner))]
+        private CellsSpawner gridSpawner = new();
+
+        [SerializeField, Listener, Service(typeof(EnemySpawner))]
+        private EnemySpawner enemySpawner = new();
     }
 }

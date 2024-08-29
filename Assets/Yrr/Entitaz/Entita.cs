@@ -9,7 +9,6 @@ namespace Yrr.Entitaz
     {
         private readonly Dictionary<Type, object> _components = new();
 
-
         public virtual void SetupEntita()
         {
             var childrenComponents = GetComponentsInChildren<IEntitazComponent>(true);
@@ -21,17 +20,12 @@ namespace Yrr.Entitaz
             }
         }
 
-        public void AddEntitaComponent(object component)
-        {
-            _components[component.GetType()] = component;
-        }
-
-        T IEntita.GetEntitaComponent<T>()
+        public T GetEntitaComponent<T>()
         {
             return (T)_components[typeof(T)];
         }
 
-        bool IEntita.TryGetEntitaComponent<T>(out T element)
+        public bool TryGetEntitaComponent<T>(out T element)
         {
             if (_components.TryGetValue(typeof(T), out var result))
             {
@@ -41,6 +35,16 @@ namespace Yrr.Entitaz
 
             element = default;
             return false;
+        }
+
+        public void AddEntitaComponent(object component)
+        {
+            _components.Add(component.GetType(), component);
+        }
+
+        public void AddEntitaComponent(object component, Type componentType)
+        {
+            _components.Add(componentType, component);
         }
     }
 }

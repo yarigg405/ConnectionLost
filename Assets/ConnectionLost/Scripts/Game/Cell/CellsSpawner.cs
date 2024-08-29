@@ -8,16 +8,16 @@ using Yrr.Utils;
 namespace ConnectionLost
 {
     [Serializable]
-    internal sealed class GridSpawner
+    internal sealed class CellsSpawner
     {
         [SerializeField] private Cell cellPrefab;
 
-        [Inject] private readonly CellsSystem _cellsSystem;
+        [Inject] private readonly CellsStorage _cellsSystem;
 
         internal void SpawnGrid(GridModel gridData, Grid grid)
         {
-            _cellsSystem.Clear();
             grid.CellsContainer.ClearChildren();
+            _cellsSystem.Clear();            
 
 
             {
@@ -28,7 +28,7 @@ namespace ConnectionLost
                 var x = (p.x + p.y % 2 * 0.5f) * 1.65f;
                 var z = p.y * 1.45f;
                 cell.transform.localPosition = new Vector3(x, 0, z);
-                _cellsSystem.AddCell(cell);
+                _cellsSystem.Add(cell);
             }
 
             foreach (var p in gridData.CellsPositions.Skip(1))
@@ -38,7 +38,7 @@ namespace ConnectionLost
                 var x = (p.x + p.y % 2 * 0.5f) * 1.65f;
                 var z = p.y * 1.45f;
                 cell.transform.localPosition = new Vector3(x, 0, z);
-                _cellsSystem.AddCell(cell);
+                _cellsSystem.Add(cell);
             }
         }
     }
