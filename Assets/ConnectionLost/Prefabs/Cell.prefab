@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 4538252512917415783}
   - component: {fileID: 7713958855144830220}
   - component: {fileID: 4636216678478538381}
-  - component: {fileID: 6246046682661715851}
+  - component: {fileID: 6004620055051078752}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Untagged
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8a9e3957047fe499ec09be87170ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6246046682661715851
+--- !u!114 &6004620055051078752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -454,12 +454,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5650274205624591212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1bbcdc529c6547488a9447e0fe9d37c, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ce9c11fb887a04dba15d1835cd39da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsBlocker>k__BackingField: 0
-  <IsCanBeBlocked>k__BackingField: 0
-  <BlocksCount>k__BackingField: 0
+  IsBlocked:
+    _currentValue: 0
+  _blocksCount: 0
 --- !u!1 &6023778530392958928
 GameObject:
   m_ObjectHideFlags: 0

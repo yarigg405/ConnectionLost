@@ -4,6 +4,7 @@ using System;
 using VContainer;
 using UnityEngine;
 using Yrr.Entitaz;
+using UnityEngine.EventSystems;
 
 
 namespace ConnectionLost
@@ -13,8 +14,7 @@ namespace ConnectionLost
     {
         [Inject] private readonly CameraSystem _cameraSystem;
         [Inject] private readonly CellClickSystem _cellClickSystem;
-        [Inject] private readonly EnemyStorage _enemyClickHandler;
-        [Inject] private readonly BonusSystem _bonusClickHandler;
+        [Inject] private readonly EnemyBattleSystem _enemyBattleSystem;
 
 
         void IUpdateListener.OnUpdate(float deltaTime)
@@ -27,6 +27,8 @@ namespace ConnectionLost
 
         private void HandleInput()
         {
+            if (EventSystem.current.IsPointerOverGameObject()) return;
+
             Ray inputRay = _cameraSystem.MainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(inputRay, out var hit))
             {
@@ -36,6 +38,11 @@ namespace ConnectionLost
                     {
                         _cellClickSystem.CellClicked(cell);
                     }
+
+                    else if (entita is Enemy enemy)
+                    {
+                        _enemyBattleSystem.Attack(enemy);
+                    }                    
                 }
             }
         }

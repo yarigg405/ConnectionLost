@@ -16,6 +16,11 @@ namespace ConnectionLost
             _storage.Add(value);
         }
 
+        internal void Remove(T value)
+        {
+            _storage.Remove(value);
+        }
+
         internal void Clear()
         {
             _storage.Clear();

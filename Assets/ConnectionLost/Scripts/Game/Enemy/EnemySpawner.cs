@@ -16,7 +16,7 @@ namespace ConnectionLost
         [Inject] private readonly CellsStorage _cellsStorage;
         [Inject] private readonly EnemyStorage _enemyStorage;
         [Inject] private readonly GameBalanceSettings _balance;
-
+        [Inject] private readonly PlayerWinLoseController _playerWinLoseController;
 
         internal void SpawnEnemies(GridStats stats)
         {
@@ -39,6 +39,7 @@ namespace ConnectionLost
                     var randomEnemyPrefab = randomizator.GetRandom();
                     var enemy = GameObject.Instantiate(randomEnemyPrefab);
                     enemy.SetupEntita();
+                    enemy.GetEntitaComponent<DestroyComponent>().OnDestroy += () => _enemyStorage.Remove(enemy);
                     enemy.transform.SetParent(randCell.transform);
                     enemy.transform.localPosition = Vector3.zero;
                     enemy.gameObject.SetActive(false);
@@ -48,6 +49,24 @@ namespace ConnectionLost
                     enemiesCount--;
                 }
             }
+
+            while (true)
+            {
+                var randCell = cells.GetRandomItem();
+                var contentContainer = randCell.GetEntitaComponent<ContentContainer>();
+                if (contentContainer.IsEmpty)
+                {
+                    var enemy = GameObject.Instantiate(data.CoreEnemy);
+                    enemy.SetupEntita();
+                    var destroy = enemy.GetEntitaComponent<DestroyComponent>();
+                    destroy.OnDestroy += () => _playerWinLoseController.PlayerWin();
+                    enemy.transform.SetParent(randCell.transform);
+                    enemy.transform.localPosition = Vector3.zero;
+                    enemy.gameObject.SetActive(false);
+                    contentContainer.SetContent(enemy);
+                    break;
+                }
+            }
         }
     }
 
@@ -55,5 +74,6 @@ namespace ConnectionLost
     internal struct DifficultSpawnInfo
     {
         public UnityKeyValuePair<Enemy, float>[] SpawnData;
+        public Enemy CoreEnemy;
     }
 }

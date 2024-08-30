@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -675,7 +675,8 @@ GameObject:
   - component: {fileID: 1874950076809548912}
   - component: {fileID: 5548768382663029947}
   - component: {fileID: 3923577840870140776}
-  - component: {fileID: 6419438237560468261}
+  - component: {fileID: 3478469621280424765}
+  - component: {fileID: 6659030433395965443}
   m_Layer: 0
   m_Name: AntivirusEnemy_Tutorial
   m_TagString: Untagged
@@ -789,7 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDamage: 30
---- !u!114 &6419438237560468261
+--- !u!114 &3478469621280424765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -798,9 +799,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7207244547337145785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1bbcdc529c6547488a9447e0fe9d37c, type: 3}
+  m_Script: {fileID: 11500000, guid: 08f4ea0d2cc32e84ea10a5cb291e3c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsBlocker>k__BackingField: 1
-  <IsCanBeBlocked>k__BackingField: 0
-  <BlocksCount>k__BackingField: 0
+--- !u!114 &6659030433395965443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7207244547337145785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcc50d79c8cb314597b4fb78095dca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

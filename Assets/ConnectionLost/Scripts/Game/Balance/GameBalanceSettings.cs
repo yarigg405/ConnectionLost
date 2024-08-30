@@ -22,7 +22,9 @@ namespace ConnectionLost
         [field: SerializeField] public float EnemiesPercentByGrid { get; private set; } = 0.15f;
         [field: SerializeField] public float BonusesPercentByGrid { get; private set; } = 0.15f;
         [field: SerializeField] public float SuppressorDeBuffValuePerLevel { get; private set; } = 15f;
-        [field: SerializeField] public float PlayerMinPower { get; private set; } = 10f;
 
+        [field: SerializeField] public int PlayerBaseHealth { get; private set; } = 90;
+        [field: SerializeField] public int PlayerBaseAttack { get; private set; } = 25;
+        [field: SerializeField] public int PlayerMinAttack { get; private set; } = 10;
     }
 }

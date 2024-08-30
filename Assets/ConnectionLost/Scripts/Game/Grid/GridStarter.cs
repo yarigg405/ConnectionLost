@@ -1,6 +1,5 @@
 ﻿using ConnectionLost.Camera;
 using Infrastructure.GameSystem;
-using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 using VContainer;
@@ -9,7 +8,7 @@ using VContainer;
 namespace ConnectionLost
 {
     [Serializable]
-    internal sealed class GridStarter : IUpdateListener
+    internal sealed class GridStarter:IGameStartListener
     {
         [SerializeField] private Grid[] grids;
 
@@ -17,24 +16,20 @@ namespace ConnectionLost
         [Inject] private readonly CellsSpawner _gridSpawner;
         [Inject] private readonly EnemySpawner _enemySpawner;
         [Inject] private readonly CameraSystem _cameraSystem;
+        [Inject] private readonly PlayerSetup _playerSetup;
 
         private readonly GridGenerator _generator = new();
 
         private GridDifficult _currentDifficult = GridDifficult.Tutorial;
         private int _currentGridNum;
 
-        [Button]
-        public void SpawnGrid()
+
+        public void StartGrid()
         {
-            var stats = _statsFactory.BuildGridStats(_currentDifficult);
-            var gridData = _generator.GenerateRandomGrid(stats);
-            _gridSpawner.SpawnGrid(gridData, grids[_currentGridNum]);
-            _enemySpawner.SpawnEnemies(stats);
-            _cameraSystem.LookAt(grids[_currentGridNum].CameraLookPoint);
-            _cameraSystem.FollowAt(grids[_currentGridNum].CameraFollowPoint);
+            _playerSetup.SetupPlayer();
+            SpawnGrid();
         }
 
-        [Button]
         public void NextGrid()
         {
             _currentGridNum++;
@@ -44,10 +39,19 @@ namespace ConnectionLost
             SpawnGrid();
         }
 
-        void IUpdateListener.OnUpdate(float deltaTime)
+        private void SpawnGrid()
         {
-            if (Input.GetKeyUp(KeyCode.F4))
-                SpawnGrid();
+            var stats = _statsFactory.BuildGridStats(_currentDifficult);
+            var gridData = _generator.GenerateRandomGrid(stats);
+            _gridSpawner.SpawnGrid(gridData, grids[_currentGridNum]);
+            _enemySpawner.SpawnEnemies(stats);
+            _cameraSystem.LookAt(grids[_currentGridNum].CameraLookPoint);
+            _cameraSystem.FollowAt(grids[_currentGridNum].CameraFollowPoint);
+        }
+
+        void IGameStartListener.OnGameStart()
+        {
+            StartGrid();
         }
     }
 }

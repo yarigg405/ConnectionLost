@@ -17,6 +17,7 @@ namespace ConnectionLost
         private void OnEnable()
         {
             health.OnDamageReceived += UpdateHealth;
+            UpdateHealth();
             attackTmp.text = $"<sprite=1>{attack.AttackDamage}";
         }
 

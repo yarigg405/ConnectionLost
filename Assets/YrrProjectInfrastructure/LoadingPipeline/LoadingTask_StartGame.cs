@@ -8,7 +8,7 @@ namespace Infrastructure.LoadingPipeline
 {
     internal sealed class LoadingTask_StartGame : MonoBehaviour, ILoadingTask
     {
-        [Inject] private GameMachine _gameMachine;
+        [Inject] private readonly GameMachine _gameMachine;
 
         async UniTask<LoadingResult> ILoadingTask.Do()
         {
