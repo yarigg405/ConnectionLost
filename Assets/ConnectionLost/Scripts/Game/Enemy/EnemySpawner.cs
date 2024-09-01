@@ -3,6 +3,7 @@ using System.Linq;
 using UniRx;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 using Yrr.Utils;
 
 
@@ -11,12 +12,13 @@ namespace ConnectionLost
     [Serializable]
     internal sealed class EnemySpawner
     {
-        [SerializeField] private UnityDictionary<GridDifficult, DifficultSpawnInfo> spawnInfoMap;
+        [SerializeField] private UnityDictionary<GridDifficult, EnemySpawnInfo> spawnInfoMap;
 
         [Inject] private readonly CellsStorage _cellsStorage;
         [Inject] private readonly EnemyStorage _enemyStorage;
         [Inject] private readonly GameBalanceSettings _balance;
         [Inject] private readonly PlayerWinLoseController _playerWinLoseController;
+        [Inject] private readonly IObjectResolver _objectResolver;
 
         internal void SpawnEnemies(GridStats stats)
         {
@@ -38,6 +40,7 @@ namespace ConnectionLost
                 {
                     var randomEnemyPrefab = randomizator.GetRandom();
                     var enemy = GameObject.Instantiate(randomEnemyPrefab);
+                    _objectResolver.InjectGameObject(enemy.gameObject);
                     enemy.SetupEntita();
                     enemy.GetEntitaComponent<DestroyComponent>().OnDestroy += () => _enemyStorage.Remove(enemy);
                     enemy.transform.SetParent(randCell.transform);
@@ -71,7 +74,7 @@ namespace ConnectionLost
     }
 
     [Serializable]
-    internal struct DifficultSpawnInfo
+    internal struct EnemySpawnInfo
     {
         public UnityKeyValuePair<Enemy, float>[] SpawnData;
         public Enemy CoreEnemy;

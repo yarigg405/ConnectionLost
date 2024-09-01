@@ -15,6 +15,7 @@ namespace ConnectionLost
         [Inject] private readonly GridStatsFactory _statsFactory;
         [Inject] private readonly CellsSpawner _gridSpawner;
         [Inject] private readonly EnemySpawner _enemySpawner;
+        [Inject] private readonly BonusSpawner _bonusSpawner;
         [Inject] private readonly CameraSystem _cameraSystem;
         [Inject] private readonly PlayerSetup _playerSetup;
 
@@ -45,6 +46,7 @@ namespace ConnectionLost
             var gridData = _generator.GenerateRandomGrid(stats);
             _gridSpawner.SpawnGrid(gridData, grids[_currentGridNum]);
             _enemySpawner.SpawnEnemies(stats);
+            _bonusSpawner.SpawnBonuses(stats);
             _cameraSystem.LookAt(grids[_currentGridNum].CameraLookPoint);
             _cameraSystem.FollowAt(grids[_currentGridNum].CameraFollowPoint);
         }

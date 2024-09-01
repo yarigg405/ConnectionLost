@@ -12,6 +12,9 @@ namespace ConnectionLost
         [SerializeField, Listener, Service(typeof(PlayerStats))]
         private PlayerStats playerStats = new();
 
+        [SerializeField, Listener, Service(typeof(PlayerBonusInventory))]
+        private PlayerBonusInventory playerBonusInventory = new();
+
         [SerializeField, Listener, Service(typeof(PlayerView))]
         private PlayerView playerView;
     }

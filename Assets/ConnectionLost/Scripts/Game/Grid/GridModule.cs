@@ -17,5 +17,8 @@ namespace ConnectionLost
 
         [SerializeField, Listener, Service(typeof(EnemySpawner))]
         private EnemySpawner enemySpawner = new();
+
+        [SerializeField, Listener, Service(typeof(BonusSpawner))]
+        private BonusSpawner bonusSpawner = new();
     }
 }

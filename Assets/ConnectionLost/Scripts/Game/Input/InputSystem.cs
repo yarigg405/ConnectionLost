@@ -15,6 +15,7 @@ namespace ConnectionLost
         [Inject] private readonly CameraSystem _cameraSystem;
         [Inject] private readonly CellClickSystem _cellClickSystem;
         [Inject] private readonly EnemyBattleSystem _enemyBattleSystem;
+        [Inject] private readonly BonusClickSystem _bonusClickSystem;
 
 
         void IUpdateListener.OnUpdate(float deltaTime)
@@ -42,7 +43,12 @@ namespace ConnectionLost
                     else if (entita is Enemy enemy)
                     {
                         _enemyBattleSystem.Attack(enemy);
-                    }                    
+                    }
+
+                    else if (entita is Bonus bonus)
+                    {
+                        _bonusClickSystem.ClickOnBonus(bonus);
+                    }
                 }
             }
         }

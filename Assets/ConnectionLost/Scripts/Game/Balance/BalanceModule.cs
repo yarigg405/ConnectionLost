@@ -8,6 +8,5 @@ namespace ConnectionLost
     {
         [SerializeField, Service(typeof(GameBalanceSettings))]
         private GameBalanceSettings settings = new();
-
     }
 }

@@ -12,10 +12,7 @@ namespace ConnectionLost
         [SerializeField, Listener, Service(typeof(CellClickSystem))]
         private CellClickSystem cellClickHandler = new();
 
-        [SerializeField, Listener, Service(typeof(EnemyStorage))]
-        private EnemyStorage enemyClickHandler = new();
-
-        [SerializeField, Listener, Service(typeof(BonusSystem))]   
-        private BonusSystem bonusesClickHandler = new();
+        [SerializeField, Listener, Service(typeof(BonusClickSystem))]   
+        private BonusClickSystem bonusesClickHandler = new();
     }
 }
