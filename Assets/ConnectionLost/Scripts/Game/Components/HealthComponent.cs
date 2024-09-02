@@ -12,8 +12,10 @@ namespace ConnectionLost
         [field: SerializeField] public int CurrentHealth { get; private set; }
 
         [SerializeField] private UnityEvent onDamageReceived;
+        [SerializeField] private UnityEvent onHealReceived;
 
         public event Action OnDamageReceived;
+        public event Action OnHealReceived;
         public event Action OnDeath;
 
         private void OnEnable()
@@ -31,6 +33,13 @@ namespace ConnectionLost
             {
                 OnDeath?.Invoke();
             }
+        }
+
+        internal void GetHeal(int heal)
+        {
+            CurrentHealth += heal;
+            onHealReceived?.Invoke();
+            OnHealReceived?.Invoke();
         }
     }
 }

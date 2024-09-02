@@ -53,12 +53,14 @@ namespace ConnectionLost
             {
                 Status.Value = CellStatus.HaveContent;
                 content.ContentEntita.gameObject.SetActive(true);
-                if (content.ContentEntita.TryGetEntitaComponent<BlockerComponent>(out var block))
+
+
+                foreach (var startable in content.ContentEntita.GetEntitaComponents<IStartableComponent>())
                 {
-                    block.StartBlock();
+                    startable.StartComponent();
                 }
 
-                else
+                if (!content.ContentEntita.TryGetEntitaComponent<BlockerComponent>(out var block))
                 {
                     var neighboursColliders = Physics.OverlapSphere(transform.position, 1f);
                     for (int i = 0; i < neighboursColliders.Length; i++)

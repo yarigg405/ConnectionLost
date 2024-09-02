@@ -24,7 +24,7 @@ namespace ConnectionLost
                 else
                 {
                     var enemyAttack = enemy.GetEntitaComponent<AttackComponent>();
-                    _playerStats.PlayerHealth.Value -= enemyAttack.AttackDamage;
+                    _playerStats.Damage(enemyAttack.AttackDamage);
                 }
             }
         }

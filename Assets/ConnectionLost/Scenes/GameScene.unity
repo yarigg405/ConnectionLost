@@ -171,6 +171,8 @@ MonoBehaviour:
       _currentValue: 0
     PlayerAttack:
       _currentValue: 0
+    ShieldsCount:
+      _currentValue: 0
   playerView: {fileID: 281466379}
 --- !u!1 &97937765
 GameObject:
@@ -816,6 +818,10 @@ MonoBehaviour:
         Value: {fileID: 11400000, guid: 613e872f72987fe418925c588af00028, type: 2}
       - Key: 3
         Value: {fileID: 11400000, guid: 7fa8af5b1aa4cf2459e1435616c96cff, type: 2}
+      - Key: 2
+        Value: {fileID: 11400000, guid: 62fe465bf2c9b84428db9a9f3254eb92, type: 2}
+      - Key: 4
+        Value: {fileID: 11400000, guid: 383f5cf72165fe04dbe1ffbc18aaa0e2, type: 2}
 --- !u!4 &326399668
 Transform:
   m_ObjectHideFlags: 0

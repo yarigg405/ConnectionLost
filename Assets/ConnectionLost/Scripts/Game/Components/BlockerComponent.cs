@@ -4,9 +4,9 @@ using Yrr.Entitaz;
 
 namespace ConnectionLost
 {
-    internal sealed class BlockerComponent : MonoBehaviour, IEntitazComponent
+    internal sealed class BlockerComponent : MonoBehaviour, IStartableComponent
     {
-        internal void StartBlock()
+        void IStartableComponent.StartComponent()
         {
             var neighboursColliders = Physics.OverlapSphere(transform.position, 1f);
             for (int i = 0; i < neighboursColliders.Length; i++)
@@ -21,7 +21,7 @@ namespace ConnectionLost
             }
         }
 
-        internal void StopBlocking()
+        void IStartableComponent.StopComponent()
         {
             var neighboursColliders = Physics.OverlapSphere(transform.position, 1f);
             for (int i = 0; i < neighboursColliders.Length; i++)

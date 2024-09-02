@@ -8,7 +8,7 @@ namespace ConnectionLost
     {
         [SerializeField] private int shieldCount;
 
-        [Inject] private readonly PlayerStats playerStats;
+        [Inject] private readonly PlayerStats _playerStats;
 
         public override BonusLogic GetLogic()
         {
@@ -20,7 +20,7 @@ namespace ConnectionLost
 
         public override void UseBonus()
         {
-            playerStats.ShieldsCount.Value += shieldCount;
+            _playerStats.ShieldsCount.Value += shieldCount;
             RemoveBonusFromSlot();
         }
     }

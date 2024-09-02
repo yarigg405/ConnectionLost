@@ -20,8 +20,10 @@ namespace ConnectionLost
             var healt = GetEntitaComponent<HealthComponent>();
             healt.OnDeath -= OnDeath;
 
-            var block = GetEntitaComponent<BlockerComponent>();
-            block.StopBlocking();
+            foreach (var startable in GetEntitaComponents<IStartableComponent>())
+            {
+                startable.StopComponent();
+            }
 
             var destroy = GetEntitaComponent<DestroyComponent>();
             destroy.Destroy();

@@ -22,6 +22,12 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: <BonusLogic>k__BackingField
-      Entry: 6
+      Entry: 7
+      Data: 0|ConnectionLost.ShieldBonusLogic, ConnectionLost
+    - Name: shieldCount
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
       Data: 
-  <BonusIcon>k__BackingField: {fileID: 0}
+  <BonusIcon>k__BackingField: {fileID: 21300000, guid: f2fcacae4424dad4e8b445fb7d8f8b03, type: 3}

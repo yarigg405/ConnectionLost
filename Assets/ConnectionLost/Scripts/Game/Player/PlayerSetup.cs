@@ -31,6 +31,7 @@ namespace ConnectionLost
 
         internal void SetupPlayer()
         {
+            _playerStats.ResetDebuff();
             _playerStats.PlayerHealth.Value = _balance.PlayerBaseHealth;
             _playerStats.PlayerAttack.Value = _balance.PlayerBaseAttack;
             _playerInventory.RemoveAt(0);

@@ -25,6 +25,13 @@ namespace Yrr.Entitaz
             return (T)_components[typeof(T)];
         }
 
+        public IEnumerable<T> GetEntitaComponents<T>()
+        {
+            foreach (var pair in _components)
+                if (pair.Key is T)
+                    yield return (T)pair.Value;
+        }
+
         public bool TryGetEntitaComponent<T>(out T element)
         {
             if (_components.TryGetValue(typeof(T), out var result))
