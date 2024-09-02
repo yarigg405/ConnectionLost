@@ -12,4 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e64a53519b933949b4cec31c389eb15, type: 3}
   m_Name: HurricaneSO
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <BonusLogic>k__BackingField
+      Entry: 7
+      Data: 0|ConnectionLost.HurricaneBonusLogic, ConnectionLost
+    - Name: countOfTurns
+      Entry: 3
+      Data: 3
+    - Name: damageEveryTurn
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
   <BonusIcon>k__BackingField: {fileID: 21300000, guid: b8d444f2d1a196c49ba8cb723f2bff0b, type: 3}

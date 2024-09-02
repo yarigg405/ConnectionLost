@@ -12,4 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e64a53519b933949b4cec31c389eb15, type: 3}
   m_Name: HealthSO
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <BonusLogic>k__BackingField
+      Entry: 7
+      Data: 0|ConnectionLost.RepairBonusLogic, ConnectionLost
+    - Name: countOfTurns
+      Entry: 3
+      Data: 3
+    - Name: healthRepair
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 4
+      Data: 25
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   <BonusIcon>k__BackingField: {fileID: 21300000, guid: 41d2b2d235c9f764da538b8552d66d7c, type: 3}

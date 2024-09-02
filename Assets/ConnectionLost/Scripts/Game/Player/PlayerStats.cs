@@ -9,5 +9,10 @@ namespace ConnectionLost
     {
         public ReactiveValue<int> PlayerHealth = new();
         public ReactiveValue<int> PlayerAttack = new();
+
+        internal void Heal(int healthRepair)
+        {
+            PlayerHealth.Value += healthRepair;
+        }
     }
 }

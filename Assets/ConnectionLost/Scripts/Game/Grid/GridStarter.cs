@@ -18,6 +18,8 @@ namespace ConnectionLost
         [Inject] private readonly BonusSpawner _bonusSpawner;
         [Inject] private readonly CameraSystem _cameraSystem;
         [Inject] private readonly PlayerSetup _playerSetup;
+        [Inject] private readonly NextTurnObserver _nexTurnObserver;
+
 
         private readonly GridGenerator _generator = new();
 
@@ -42,6 +44,7 @@ namespace ConnectionLost
 
         private void SpawnGrid()
         {
+            _nexTurnObserver.Reset();
             var stats = _statsFactory.BuildGridStats(_currentDifficult);
             var gridData = _generator.GenerateRandomGrid(stats);
             _gridSpawner.SpawnGrid(gridData, grids[_currentGridNum]);

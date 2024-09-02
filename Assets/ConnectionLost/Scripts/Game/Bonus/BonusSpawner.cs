@@ -16,11 +16,11 @@ namespace ConnectionLost
         [Inject] private readonly CellsStorage _cellsStorage;
         [Inject] private readonly BonusStorage _bonusesStorage;
         [Inject] private readonly GameBalanceSettings _balance;
-        [Inject] private readonly IObjectResolver _objectResolver;
 
 
         internal void SpawnBonuses(GridStats stats)
         {
+            _bonusesStorage.Clear();
             var randomizator = new RandomizerByWeight<Bonus>();
             var data = spawnInfoMap.Get(stats.Difficult);
             foreach (var pair in data.SpawnData)
@@ -39,7 +39,6 @@ namespace ConnectionLost
                 {
                     var randomBonusPrefab = randomizator.GetRandom();
                     var bonus = GameObject.Instantiate(randomBonusPrefab);
-                    _objectResolver.InjectGameObject(bonus.gameObject);
                     bonus.SetupEntita();
                     bonus.GetEntitaComponent<DestroyComponent>().OnDestroy += () => _bonusesStorage.Remove(bonus);
                     bonus.transform.SetParent(randCell.transform);

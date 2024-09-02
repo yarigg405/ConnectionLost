@@ -22,6 +22,7 @@ namespace ConnectionLost
 
         internal void SpawnEnemies(GridStats stats)
         {
+            _enemyStorage.Clear();
             var randomizator = new RandomizerByWeight<Enemy>();
             var data = spawnInfoMap.Get(stats.Difficult);
             foreach (var pair in data.SpawnData)

@@ -26,5 +26,8 @@ namespace ConnectionLost
 
         [SerializeField, Listener, Service(typeof(PlayerWinLoseController))]
         private PlayerWinLoseController playerWinController = new();
+
+        [SerializeField, Service(typeof(NextTurnObserver))]
+        private NextTurnObserver nextTurnObserver = new();
     }
 }
