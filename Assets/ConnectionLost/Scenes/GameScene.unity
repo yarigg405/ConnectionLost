@@ -813,17 +813,9 @@ MonoBehaviour:
     bonusesDataBase:
       data:
       - Key: 1
-        Value:
-          m_AssetGUID: 613e872f72987fe418925c588af00028
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_EditorAssetChanged: 0
+        Value: {fileID: 11400000, guid: 613e872f72987fe418925c588af00028, type: 2}
       - Key: 3
-        Value:
-          m_AssetGUID: 7fa8af5b1aa4cf2459e1435616c96cff
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_EditorAssetChanged: 0
+        Value: {fileID: 11400000, guid: 7fa8af5b1aa4cf2459e1435616c96cff, type: 2}
 --- !u!4 &326399668
 Transform:
   m_ObjectHideFlags: 0

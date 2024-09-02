@@ -9,6 +9,7 @@ namespace ConnectionLost
     {
         public ReactiveValue<int> PlayerHealth = new();
         public ReactiveValue<int> PlayerAttack = new();
+        public ReactiveValue<int> ShieldsCount = new();
 
         internal void Heal(int healthRepair)
         {

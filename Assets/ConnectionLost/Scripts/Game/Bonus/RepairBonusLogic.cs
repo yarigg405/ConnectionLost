@@ -14,7 +14,6 @@ namespace ConnectionLost
 
         [Inject] private readonly PlayerStats _playerStats;
         [Inject] private readonly NextTurnObserver _nextTurnObserver;
-        [Inject] private readonly PlayerBonusInventory _playerBonusInventory;
 
         public override BonusLogic GetLogic()
         {
@@ -27,7 +26,7 @@ namespace ConnectionLost
 
         public override void UseBonus()
         {
-            _playerBonusInventory.RemoveAt(SlotIndex);
+            RemoveBonusFromSlot();
             _nextTurnObserver.OnNextTurn += HealPlayer;
         }
 

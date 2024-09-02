@@ -13,7 +13,6 @@ namespace ConnectionLost
 
         [Inject] private readonly InputSystem _inputSytem;
         [Inject] private readonly NextTurnObserver _nextTurnObserver;
-        [Inject] private readonly PlayerBonusInventory _playerBonusInventory;
 
         private Enemy _targetEnemy;
 
@@ -34,7 +33,7 @@ namespace ConnectionLost
 
         private void ClickOnEnemy(Enemy enemy)
         {
-            _playerBonusInventory.RemoveAt(SlotIndex);
+            RemoveBonusFromSlot();
             _targetEnemy = enemy;
             _nextTurnObserver.OnNextTurn += DamageEnemy;            
             DamageEnemy();

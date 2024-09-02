@@ -11,6 +11,8 @@ namespace ConnectionLost
 
         internal void ClickOnBonus(Bonus bonus)
         {
+            if (bonus.GetEntitaComponent<CanBeBlockedComponent>().IsBlocked) return;
+
             if (inventory.CanAddNew())
             {
                 inventory.InsertBonus(bonus.BonusType);

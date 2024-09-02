@@ -60,7 +60,7 @@ namespace ConnectionLost
         }
 
 
-        private async void UpdateSlot(int slotIndex)
+        private void UpdateSlot(int slotIndex)
         {
             var bonusType = _playerBonusInventory.GetBonusInSlot(slotIndex);
 
@@ -72,7 +72,7 @@ namespace ConnectionLost
 
             else
             {
-                var bonus = await _dataBase.GetBonusInfo(bonusType);
+                var bonus = _dataBase.GetBonusInfo(bonusType);
                 bonusButtons[slotIndex].SetBonus(bonus);
                 bonusButtons[slotIndex].gameObject.SetActive(true);
             }

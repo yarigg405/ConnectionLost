@@ -10,6 +10,7 @@ namespace ConnectionLost
     {
         [Inject] private readonly PlayerStats _playerStats;
         [Inject] private readonly GameBalanceSettings _balance;
+        [Inject] private readonly PlayerBonusInventory _playerInventory;
         [Inject] private readonly PlayerWinLoseController _playerWinLoseController;
 
         void IGameStartListener.OnGameStart()
@@ -32,6 +33,9 @@ namespace ConnectionLost
         {
             _playerStats.PlayerHealth.Value = _balance.PlayerBaseHealth;
             _playerStats.PlayerAttack.Value = _balance.PlayerBaseAttack;
+            _playerInventory.RemoveAt(0);
+            _playerInventory.RemoveAt(1);
+            _playerInventory.RemoveAt(2);
         }
     }
 }

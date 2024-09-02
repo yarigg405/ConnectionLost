@@ -17,8 +17,15 @@ namespace ConnectionLost
 
             if (enemy && enemy.IsAlive)
             {
-                var enemyAttack = enemy.GetEntitaComponent<AttackComponent>();
-                _playerStats.PlayerHealth.Value -= enemyAttack.AttackDamage;
+                if (_playerStats.ShieldsCount > 0)
+                {
+                    _playerStats.ShieldsCount.Value--;
+                }
+                else
+                {
+                    var enemyAttack = enemy.GetEntitaComponent<AttackComponent>();
+                    _playerStats.PlayerHealth.Value -= enemyAttack.AttackDamage;
+                }
             }
         }
     }

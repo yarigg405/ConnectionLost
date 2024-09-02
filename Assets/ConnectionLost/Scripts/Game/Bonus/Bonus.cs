@@ -31,5 +31,6 @@ namespace ConnectionLost
         Repair,
         Shield,
         Hurricane,
+        HalfHealth,
     }
 }

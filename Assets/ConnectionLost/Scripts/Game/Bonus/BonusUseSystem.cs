@@ -10,16 +10,14 @@ namespace ConnectionLost
         [Inject] private readonly IObjectResolver _objectResolver;
 
 
-        internal async void UseBonus(int slotIndex)
+        internal void UseBonus(int slotIndex)
         {
             var bonusType = _playerBonusInventory.GetBonusInSlot(slotIndex);
-            var bonus = await _dataBase.GetBonusInfo(bonusType);
+            var bonus = _dataBase.GetBonusInfo(bonusType);
             var logic = bonus.BonusLogic.GetLogic();
             logic.SlotIndex = slotIndex;
             _objectResolver.Inject(logic);
             logic.UseBonus();
-        }
-
-     
+        }     
     }
 }
