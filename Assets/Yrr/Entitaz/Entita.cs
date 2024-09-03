@@ -28,7 +28,7 @@ namespace Yrr.Entitaz
         public IEnumerable<T> GetEntitaComponents<T>()
         {
             foreach (var pair in _components)
-                if (pair.Key is T)
+                if (pair.Value is T)
                     yield return (T)pair.Value;
         }
 

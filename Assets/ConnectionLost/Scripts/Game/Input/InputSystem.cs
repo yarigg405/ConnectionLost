@@ -16,7 +16,6 @@ namespace ConnectionLost
         [Inject] private readonly CellClickSystem _cellClickSystem;
         [Inject] private readonly EnemyBattleSystem _enemyBattleSystem;
         [Inject] private readonly BonusClickSystem _bonusClickSystem;
-        [Inject] private readonly NextTurnObserver _nextTurnObserver;
 
         private Action<Enemy> _customClickEnemy;
 
@@ -39,8 +38,7 @@ namespace ConnectionLost
                 {
                     if (entita is Cell cell)
                     {
-                        _cellClickSystem.CellClicked(cell);
-                        _nextTurnObserver.NextTurn();
+                        _cellClickSystem.CellClicked(cell);                        
                     }
 
                     else if (entita is Enemy enemy)
@@ -54,14 +52,12 @@ namespace ConnectionLost
                         else
                         {
                             _enemyBattleSystem.Attack(enemy);
-                            _nextTurnObserver.NextTurn();
                         }
                     }
 
                     else if (entita is Bonus bonus)
                     {
                         _bonusClickSystem.ClickOnBonus(bonus);
-                        _nextTurnObserver.NextTurn();
                     }
                 }
             }

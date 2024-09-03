@@ -9,6 +9,7 @@ namespace ConnectionLost
     {
         [Inject] private readonly EnemyStorage _enemyStorage;
         [Inject] private readonly PlayerStats _playerStats;
+        [Inject] private readonly NextTurnObserver _nextTurnObserver;
 
         internal void Attack(Enemy enemy)
         {
@@ -27,6 +28,7 @@ namespace ConnectionLost
                     _playerStats.Damage(enemyAttack.AttackDamage);
                 }
             }
+            _nextTurnObserver.NextTurn();
         }
     }
 }

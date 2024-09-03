@@ -8,6 +8,7 @@ namespace ConnectionLost
     internal sealed class BonusClickSystem
     {
         [Inject] private readonly PlayerBonusInventory inventory;
+        [Inject] private readonly NextTurnObserver _nextTurnObserver;
 
         internal void ClickOnBonus(Bonus bonus)
         {
@@ -17,6 +18,7 @@ namespace ConnectionLost
             {
                 inventory.InsertBonus(bonus.BonusType);
                 bonus.GetEntitaComponent<DestroyComponent>().Destroy();
+                _nextTurnObserver.NextTurn();
             }
         }
     }
